@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/global_contain_recycler"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<android.support.v7.widget.RecyclerView
+
+    android:id="@+id/list_neighbours"
+    android:name="com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    app:layoutManager="LinearLayoutManager"
+    tools:context=".ui.neighbour_list.NeighbourFragment"
+    tools:listitem="@layout/fragment_neighbour" />
+
+<!-- listItem: spécifie quel layout afficher dans la preview dans le cas d’une liste -->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_new_neighbour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="36dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+
+        android:clickable="true"
+        android:src="@drawable/ic_person_add_white_24dp"
+        android:tint="@android:color/white"
+        tools:ignore="RelativeOverlap" />
+
+</RelativeLayout>

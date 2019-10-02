@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+        android:id="@+id/btnAddFavoriteNeighbour"
+        android:drawable="@drawable/ic_star_border_yellow_24dp"
+        android:state_pressed="true"
+        />
+    <item
+        android:drawable="@drawable/ic_star_yellow24dp"
+        android:state_focused="true" />
+    <item
+
+        android:drawable="@drawable/ic_star_yellow24dp" />
+</selector>
