@@ -1,8 +1,11 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -10,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.Target;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
@@ -20,7 +24,7 @@ import java.util.List;
 
 public class DetailNeighbourActivity extends AppCompatActivity{
 
-    private Button mBtnFavorite;
+    private FloatingActionButton mBtnFavorite;
     private ImageButton mBtnBack;
     private ImageView mUserAvatar;
     private TextView mUserNameWhite;
@@ -42,6 +46,11 @@ public class DetailNeighbourActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+// Cette directive permet d'enlever la barre de notifications pour afficher l'application en plein écran
+       // this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//On définit le contenu de la vue APRES les instructions précédentes pour éviter un crash
         setContentView(R.layout.activity_detail_neighbour);
 
         Bundle bundle = getIntent().getExtras();
@@ -61,13 +70,13 @@ public class DetailNeighbourActivity extends AppCompatActivity{
 
         String strFormatPhone = mActivityService.getPhoneNumberFormat(strPhone);
 
-        mBtnFavorite = (Button)findViewById(R.id.btnAddFavoriteNeighbour);
+        mBtnFavorite = (FloatingActionButton)findViewById(R.id.btnAddFavoriteNeighbour);
         mBtnFavorite = giveTheGoodBtnFavorite(mBtnFavorite, boolFav);
 
         mBtnBack = (ImageButton ) findViewById(R.id.btnBackToList);
 
         mUserAvatar = (ImageView)findViewById(R.id.userAvatar) ;
-        Glide.with(mUserAvatar.getContext()).load(strAvatar).into(mUserAvatar);
+        Glide.with(mUserAvatar.getContext()).load(strAvatar).override(Target.SIZE_ORIGINAL).into(mUserAvatar);
 
         mUserNameWhite = (TextView )findViewById(R.id.userNameWhite);
         mUserNameWhite.setText(strName);
@@ -111,11 +120,11 @@ public class DetailNeighbourActivity extends AppCompatActivity{
 
     private boolean addFavoriteAction(boolean boolFav, boolean boolFavInitial){
         if(boolFav == false){
-            mBtnFavorite.setBackground(this.getResources().getDrawable(R.drawable.ic_star_yellow24dp));
+            mBtnFavorite.setImageResource(R.drawable.ic_star_yellow24dp);
             Toast.makeText(this, "Vous avez ajouté "+strName+" à vos voisin favorit", Toast.LENGTH_LONG).show();
             boolFav = true;
         }else{
-            mBtnFavorite.setBackground(this.getResources().getDrawable(R.drawable.ic_star_border_yellow_24dp));
+            mBtnFavorite.setImageResource(R.drawable.ic_star_border_yellow_24dp);
             Toast.makeText(this, "Vous avez retiré "+strName+" de vos voisin favorit", Toast.LENGTH_LONG).show();
             boolFav = false;
         }
@@ -123,11 +132,11 @@ public class DetailNeighbourActivity extends AppCompatActivity{
         return boolFav;
     }
 
-    private Button giveTheGoodBtnFavorite(Button btn, boolean b){
+    private FloatingActionButton giveTheGoodBtnFavorite(FloatingActionButton btn, boolean b){
         if(b == true){
-            btn.setBackground(this.getResources().getDrawable(R.drawable.ic_star_yellow24dp));
+            btn.setImageResource(R.drawable.ic_star_yellow24dp);
         }else{
-            btn.setBackground(this.getResources().getDrawable(R.drawable.ic_star_border_yellow_24dp));
+            btn.setImageResource(R.drawable.ic_star_border_yellow_24dp);
         }
         return btn;
     }

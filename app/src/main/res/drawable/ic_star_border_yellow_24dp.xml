@@ -1,7 +1,7 @@
 <vector
     android:id="@+id/btnAddNotFavoriteNeighbour"
     android:height="34dp"
-    android:tint="#f9ce00"
+    android:tint="#F9A600"
     android:viewportHeight="24.0"
     android:viewportWidth="24.0"
     android:width="34dp"

@@ -13,8 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.neighbour_list.DetailNeighbourActivity">
-
+            android:name=".ui.neighbour_list.DetailNeighbourActivity"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".ui.neighbour_list.ListNeighbourActivity"
