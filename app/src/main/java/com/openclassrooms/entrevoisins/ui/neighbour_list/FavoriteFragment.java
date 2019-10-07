@@ -92,7 +92,6 @@ public class FavoriteFragment extends Fragment {
      */
     public void initList() {
         mFavoriteNeighbours = mApiService.getFavoriteNeighbour();
-    System.out.println("Init exécuté!!");
         mRecyclerView.setAdapter(new MyFavoriteNeighbourRecyclerViewAdapter(mFavoriteNeighbours));
     }
 

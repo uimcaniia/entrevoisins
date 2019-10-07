@@ -39,9 +39,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
      */
     @Override
     public void makeFavoriteNeighbour(Neighbour neighbour, boolean isFavorite) {
-
         if(neighbour.getFavorite() != isFavorite){
-            System.out.println("changé!!");
             neighbour.setFavorite(isFavorite);
         }
     }
@@ -60,10 +58,8 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     public List<Neighbour> getFavoriteNeighbour() {
         mFavoriteNeighbours = new ArrayList<>();
         int nbr = neighbours.size();
-
         for(int i = 0 ; i < nbr ; i++){
             boolean b = neighbours.get(i).getFavorite();
-            // System.out.println("PAS favorit!!!" + mNeighbours.get(i));
             if(b == true) {
                 mFavoriteNeighbours.add(neighbours.get(i));
             }
