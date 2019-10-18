@@ -1,10 +1,10 @@
 
 
-##Identification des parties prenantes 
+Identification des parties prenantes 
 
-####Commanditaire : ClaireParlo, Entrevoisins
-####É​quipeprojet : Développeur
-####Autre partie prenante : Charline, UX Designer freelance
+Commanditaire : ClaireParlo, Entrevoisins
+É​quipeprojet : Développeur
+Autre partie prenante : Charline, UX Designer freelance
 
 ----
 
@@ -21,8 +21,7 @@ L’API minimale définit la version minimale de l’API d’Android avec laquel
 L’API cible est l’API avec laquelle on va compiler l’application => version Gradle : 5.4.1
 
 ----
-
-###Pour compiler et exécuter l'application : 
+Pour compiler et exécuter l'application : 
 
 *Pour compiler, Android va se servir de l'outil nommé Gradle qui permet d’effectuer toutes les tâches complexes nécessaires à la compilation.*
 
@@ -38,7 +37,7 @@ L’API cible est l’API avec laquelle on va compiler l’application => versio
 
 ----
 
-### Activity présente : ListNeighbourActivity.java
+ Activity présente : ListNeighbourActivity.java
 
 > Tablayout avec 2 onglets (1er pour la liste des neighbours, 2ème pour la future liste des favorit)
 
@@ -46,10 +45,10 @@ L’API cible est l’API avec laquelle on va compiler l’application => versio
 
 
 ----
-##AJOUT A PARTIR DE L'EXISTANT
+AJOUT A PARTIR DE L'EXISTANT
 
 
-###Création et ajout du 2ème fragment devant contenir la liste des neighbours mit en favorit :
+Création et ajout du 2ème fragment devant contenir la liste des neighbours mit en favorit :
 
 
 - 2ème fragment créé => FavoriteFragment.java
@@ -81,7 +80,7 @@ L’API cible est l’API avec laquelle on va compiler l’application => versio
 
 ----
 
-###Affichage de la seconde activité : DetailNeighbourActivity
+Affichage de la seconde activité : DetailNeighbourActivity
 
 - création du layout => activity_detail_neighbour.xml
 
@@ -102,14 +101,14 @@ Fermeture de l'activité avec "finish()" lors du click sur le bouton retour (fle
 
 
 ----
-##TEST  + ANDROID TEST
+TEST  + ANDROID TEST
 
 
-##unitaire : 
+unitaire : 
 
-###NeighbourServiceTest (fichier existant pour la 1ère activité)
+NeighbourServiceTest (fichier existant pour la 1ère activité)
 
-####Tests existants : 
+Tests existants : 
 			
 >getNeighboursWithSuccess() => On vérifie que l'on récupère une liste de voisin avec la méthode getNeighbours()
 
@@ -117,7 +116,7 @@ Fermeture de l'activité avec "finish()" lors du click sur le bouton retour (fle
 >deleteNeighbourWithSuccess() => On vérifie qu'un voisin se fait correctement supprimer avec deleteNeighbour(neighbourToDelete)
 
 ----
-###tests ajoutés : 
+tests ajoutés : 
 
     addNewNeighbourWithSuccess() => Vérifie qu'un voisin se fait correctement ajouter à la liste actuel de voisin.
 
@@ -128,7 +127,7 @@ Fermeture de l'activité avec "finish()" lors du click sur le bouton retour (fle
     getFavoriteNeighboursWithSuccess() => Vérifie qu'avec la méthode getFavoriteNeighbour(), on récupère bien que les neighbours favoris.
 
 ----
-###NeighbourDetailTest 
+NeighbourDetailTest 
 (nouveau fichier pour les test de la seconde activité. Il est préférable de séparer les test des activités différentes)
 
     transformedNumberPhone_InGoodFormat() => vérifie qu'avec getPhoneNumberFormat(), le format du téléphone se fait correctement : "0629493243" deviendra "+33 6 29 49 32 43"    
@@ -140,19 +139,19 @@ Fermeture de l'activité avec "finish()" lors du click sur le bouton retour (fle
     NoChange_FavoriteStatusNeighbour_WithSuccess_IfStatusIsTheSame() => identique que le test au-dessus, sauf que on ne change pas son status de favorit si la valeur initial est identique de la nouvelle valeur
 
 ----
-##Android Test : 
+Android Test : 
 
-###NeighboursListTest 
+NeighboursListTest 
 (fichier existant pour la 1ère activité).
 
-###Tests existants :
+Tests existants :
 
 >myNeighboursList_shouldNotBeEmpty() => On vérifie que la liste de voisin n'st pas vide
 
 >myNeighboursList_deleteAction_shouldRemoveItem() => On vérifie qu'un voisin se fait correctement supprimer de la liste
 
 ----
-###tests ajoutés : 
+tests ajoutés : 
 	onFavoriteNeighbourView_showOnlyFavoredNeighbour() => on vérifie que lors du click sur l'onglet "favoris" on affiche bien les voisins favoris
 
 	onMyNeighboursList_deleteActionOnFavoriteNeighbourItem_shouldRemoveItemInMyFavoriteNeighbourList() => on vérifie que lors de la suppresion d'un voisin, il se fait également suppimer de la liste des favoris (logique)
@@ -162,7 +161,7 @@ Fermeture de l'activité avec "finish()" lors du click sur le bouton retour (fle
 	onNeighbourList_addNewNeighbourAction_shouldaddItemInNeighbourList() => on vérifie qu'un nouveau voisin se fait correctement ajouté à la liste des voisin lorsqu'on click sur le bouton ajouté en forme de "+".
 
 ----
-###DetailNeighbourActivityTest 
+DetailNeighbourActivityTest 
 (nouveau fichier pour les test de la seconde activité)
 
     onDetailNeighbourWindow_nameOfNeigbourSelectInTextView_mustBeCorrect() => On vérifie que la seconde activité affiche le détail du bon voisin sélectionné dans la liste de la précédente activité en comparant les prénoms.

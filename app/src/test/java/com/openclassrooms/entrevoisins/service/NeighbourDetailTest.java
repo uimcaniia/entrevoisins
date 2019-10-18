@@ -9,6 +9,8 @@ import org.junit.Test;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class NeighbourDetailTest {
     /**
@@ -49,7 +51,7 @@ public class NeighbourDetailTest {
         neighbour.setFavorite(true);
         // on change son status de favorit si la valeur initial est différente de la nouvelle valeur
         mActivityService.refreshFavoritNeighbour(false, true);
-        assertEquals(false , neighbour.getFavorite());
+        assertFalse( neighbour.getFavorite());
     }
     @Test
     public void NoChange_FavoriteStatusNeighbour_WithSuccess_IfStatusIsTheSame(){
@@ -59,7 +61,7 @@ public class NeighbourDetailTest {
         neighbour.setFavorite(true);
         // on ne change pas son status de favorit si la valeur initial est identique de la nouvelle valeur
         mActivityService.refreshFavoritNeighbour(true, true);
-        assertEquals(true , neighbour.getFavorite());
+        assertTrue(neighbour.getFavorite());
     }
 
 
