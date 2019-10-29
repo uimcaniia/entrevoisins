@@ -5,12 +5,12 @@ import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import java.util.List;
 
-public class UserDiffCallback extends DiffUtil.Callback{
+public class NeighbourDiffCallback extends DiffUtil.Callback{
 
     private final List<Neighbour> oldNeighbour;
     private final List<Neighbour> newNeighbour;
 
-    public UserDiffCallback(List<Neighbour> newNeighbour, List<Neighbour> oldNeighbour) {
+    public NeighbourDiffCallback(List<Neighbour> newNeighbour, List<Neighbour> oldNeighbour) {
         this.newNeighbour = newNeighbour;
         this.oldNeighbour = oldNeighbour;
     }

@@ -46,6 +46,7 @@ Pour compiler et exécuter l'application :
 
 ----
 AJOUT A PARTIR DE L'EXISTANT
+Les fonctionnalités désormais présente dans  [l'application Entrevoisins](https://github.com/uimcaniia/entrevoisins)
 
 
 Création et ajout du 2ème fragment devant contenir la liste des neighbours mit en favorit :
