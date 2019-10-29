@@ -1,15 +1,20 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.content.BroadcastReceiver;
+import android.support.v4.content.LocalBroadcastManager;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.LocalBroadcastManager;
+
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,41 +22,30 @@ import android.view.ViewGroup;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
-import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
-import com.openclassrooms.entrevoisins.events.DetailNeighbourEvent;
 import com.openclassrooms.entrevoisins.events.FavoriteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-
-import java.util.ArrayList;
 import java.util.List;
 
 
 public class FavoriteFragment extends Fragment {
 
-
     private NeighbourApiService mApiService;
-    private List<Neighbour> mNeighbours;
-    private List<Neighbour> mFavoriteNeighbours;
     private RecyclerView mRecyclerView;
-    private Integer intId;
 
-    //----------------------------------------------------------------------------
-    //fragment 2 s'abonne l'action de supprimer un voisins favorit si il a été supprimer de l'autre fragment spécifique pour récupérer les données
+    //fragment (1) s'abonne à l'action de suppression d'un voisin favorit lorsqu'il est supprimer dans l'autre fragment (0) spécifique pour réinitialiser la liste des favoris
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
 
         @Override
-        public void onReceive(Context context, Intent intent) {
+        public void onReceive(Context context, Intent intent) { //vérifie si il reçoit le bon intent
             if ("INIT_LIST_FAVORITE_NEIGHBOURS".equals(intent.getAction()) == true)
             {
                initList();
             }
         }
     };
-    //----------------------------------------------------------------------------
+
     /**
      * Create and return a new instance
      * @return @{@link FavoriteFragment}
@@ -87,12 +81,9 @@ public class FavoriteFragment extends Fragment {
         initList();
     }
 
-    /**
-     * Init the List of neighbours
-     */
+    /** Init the List of favorit neighbours */
     public void initList() {
-
-        mFavoriteNeighbours = mApiService.getFavoriteNeighbour();
+        List<Neighbour> mFavoriteNeighbours = mApiService.getFavoriteNeighbour();
         mRecyclerView.setAdapter(new MyFavoriteNeighbourRecyclerViewAdapter(mFavoriteNeighbours));
     }
 

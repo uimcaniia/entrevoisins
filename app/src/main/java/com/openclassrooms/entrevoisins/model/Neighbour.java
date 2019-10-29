@@ -1,18 +1,12 @@
 package com.openclassrooms.entrevoisins.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import java.io.Serializable;
 import java.util.Objects;
 import java.util.Random;
 
 import static com.openclassrooms.entrevoisins.service.DummyNeighbourGenerator.FAKE_DUMMY_NEIGHBOURS;
 
-/**
- * Model object representing a Neighbour
- */
-//seul les types primitifs sont acceptés en tant qu’Extra d’un intent pour envoyé les données dans la nouvelle activité : passer nos objets en tant que Serializable
+/** Model object representing a Neighbour */
+
 public class Neighbour {
 
     /** Identifier */
@@ -24,7 +18,7 @@ public class Neighbour {
     /** Avatar */
     private String avatarUrl;
 
-    //---------------------------------------------------------------------------
+    //-------------------------AJOUT--------------------------------------------------
     /** A propos de moi */
     private String aboutMe;
 
@@ -39,19 +33,18 @@ public class Neighbour {
 
     /** Neighbour is favorite */
     private boolean favorite;
-
     //---------------------------------------------------------------------------
 
     /**
      * Constructor
-     * @param id
-     * @param name
-     * @param avatarUrl
-     * @param aboutMe
-     * @param adress
-     * @param phone
-     * @param webSite
-     * @param favorite
+     * @param id identifiant du neighbour
+     * @param name nom
+     * @param avatarUrl avator (photo)
+     * @param aboutMe a propos de...
+     * @param adress adresse
+     * @param phone téléphone
+     * @param webSite site web
+     * @param favorite status favoris ou non
      *
      */
     public Neighbour(Integer id, String name, String avatarUrl, String aboutMe, String adress, String phone, String webSite, boolean favorite) {
@@ -65,7 +58,31 @@ public class Neighbour {
         this.favorite = favorite;
     }
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    //-------------------------AJOUT--------------------------------------------------
     public String getAboutMe(){
         return aboutMe;
     }
@@ -98,46 +115,23 @@ public class Neighbour {
         this.webSite = webSite;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAvatarUrl() {
-        return avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+    public boolean getFavorite() {
+        return favorite;
     }
 
     public void setFavorite(boolean favorite) {
         this.favorite = favorite;
     }
 
-    public boolean getFavorite() {
-        return favorite;
-    }
-
     /**
-     * Generate random user
+     * Generate random neighbour
      */
     public static Neighbour random(){
         return FAKE_DUMMY_NEIGHBOURS.get(new Random().nextInt(FAKE_DUMMY_NEIGHBOURS.size()));
     }
 
     @Override
+   // La méthode equals() permet de tester l'égalité de deux objets d'un point de vue sémantique.
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -146,8 +140,9 @@ public class Neighbour {
     }
 
     @Override
+    //La méthode hashCode() permet de renvoyer la valeur de hachage de l'objet sur lequel elle est invoquée.
     public int hashCode() {
         return Objects.hash(id);
     }
-
+    //---------------------------------------------------------------------------
 }

@@ -8,13 +8,13 @@ import com.openclassrooms.entrevoisins.service.NeighbourApiService;
  */
 public class DI {
 
-    // interface NeighbourApiService mit en attribut.
     private static NeighbourApiService service = new DummyNeighbourApiService();
 
     /**
      * Get an instance on @{@link NeighbourApiService}
      * @return
      */
+
     public static NeighbourApiService getNeighbourApiService() {
         return service;
     }

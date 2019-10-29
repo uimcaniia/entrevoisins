@@ -22,7 +22,7 @@ public interface NeighbourApiService {
      */
     void deleteNeighbour(Neighbour neighbour);
 
-    //-----------------------------------------------
+    //----------------AJOUT-------------------------------
     /**
      * ajoute ou retire le voisin en tant que favorite
      * @param neighbour
@@ -30,17 +30,13 @@ public interface NeighbourApiService {
      */
     void makeFavoriteNeighbour(Neighbour neighbour, boolean isFavorite);
 
-    /**
-     * ajoute un voisin
-     */
+    /** ajoute un voisin */
     void getNewNeighbour ();
 
-    /**
-     * récupère tous les neighbours favorite
-     * @return
-     */
+    /** récupère tous les neighbours favorite
+     * @return {@link List}
+     * */
     List<Neighbour> getFavoriteNeighbour();
-
 
     //-----------------------------------------------
 

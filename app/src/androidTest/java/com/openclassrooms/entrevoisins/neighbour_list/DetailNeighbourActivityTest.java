@@ -5,8 +5,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-
-import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.v7.widget.RecyclerView;
@@ -15,14 +13,15 @@ import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 
 import static android.support.test.espresso.Espresso.onView;
+import android.support.test.espresso.contrib.RecyclerViewActions;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
-import static android.support.test.espresso.matcher.ViewMatchers.hasChildCount;
 import static android.support.test.espresso.matcher.ViewMatchers.isDescendantOfA;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
+
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.core.IsNull.notNullValue;
 
@@ -41,7 +40,6 @@ public class DetailNeighbourActivityTest{
     @Rule
     public ActivityTestRule<ListNeighbourActivity> mActivityRule  =
             new ActivityTestRule(ListNeighbourActivity.class);
-
 
 
     @Before
@@ -65,7 +63,6 @@ public class DetailNeighbourActivityTest{
     /**
      * When we click on item neighbour, we can see the new activity who show we the details of the neighbour selected
      */
-
     @Test
     public void onMyNeighboursList_WhenNeighbourIsClick_ShowDetailNeighbourWindow() {
         //When click sur un neighbour

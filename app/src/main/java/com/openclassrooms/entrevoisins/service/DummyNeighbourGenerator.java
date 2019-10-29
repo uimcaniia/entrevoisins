@@ -22,8 +22,8 @@ public abstract class DummyNeighbourGenerator {
             new Neighbour(11, "Patrick", "http://i.pravatar.cc/150?u=a042581f4e29026702d", "A propos de moi", "4 rue du chamallow", "0629493243", "www.patrick.com", false),
             new Neighbour(12, "Ludovic", "http://i.pravatar.cc/150?u=a042581f3e39026702d", "A propos de moi", "3 rue du mamie nova", "0629493243", "www.ludovic.com", false)
     );
-//----------------------------------------------------------------------------------------
-    //AJOUT de neighbour (pas prévus à la base)
+
+    //--------------------AJOUT--------------------------------------------------------------------
     public static List<Neighbour> FAKE_DUMMY_NEIGHBOURS = Arrays.asList(
             new Neighbour(13, "Lea", "https://api.adorable.io/AVATARS/512/21.png", "Toute façon autant vous y faire parce qu’à partir de maintenant on va s’appeler «Les Chevaliers de la Table Ronde». Alors là, personne sait qui est tombé et tout le monde s’en fout! ", "8 rue du malabar", "0629493243", "www.joseph.com", false),
             new Neighbour(14, "Geoffrey", "https://api.adorable.io/AVATARS/512/22.png", "Toute façon autant vous y faire parce qu’à partir de maintenant on va s’appeler «Les Chevaliers de la Table Ronde». Alors là, personne sait qui est tombé et tout le monde s’en fout! ", "8 rue du malabar", "0629493243", "www.joseph.com", false),

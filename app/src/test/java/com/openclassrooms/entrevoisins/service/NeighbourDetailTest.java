@@ -25,6 +25,10 @@ public class NeighbourDetailTest {
         mApiService = DI.getNeighbourApiService();
         mActivityService = new DetailActivityService(1);
     }
+
+    /**
+     * change le format du numùéro de téléphone
+     */
     @Test
     public void transformedNumberPhone_InGoodFormat(){
         //on passe un numéro de téléphone en format brut
@@ -33,6 +37,9 @@ public class NeighbourDetailTest {
         assertEquals(17, formatPhoneNumber.length());
     }
 
+    /**
+     * vérifie si le bon neighbour est bien celui sélectionné
+     */
     @Test
     public void getNeighbourSelected_WithGoodId_WithSuccess(){
         // on sélectionne via l'Id du voisin (qui commence par 1, initialisé dans le setup)
@@ -43,6 +50,9 @@ public class NeighbourDetailTest {
         assertEquals(neighbour.getId(), neighbour2.getId());
     }
 
+    /**
+     * change le status d'un neighbour en favoris si initialement ce n'est pas le même
+     */
     @Test
     public void change_FavoriteStatusNeighbour_WithSuccess_IfInitialStatusIsNotTheSame(){
         //on récupère l'object Neighbour
@@ -53,6 +63,10 @@ public class NeighbourDetailTest {
         mActivityService.refreshFavoritNeighbour(false, true);
         assertFalse( neighbour.getFavorite());
     }
+
+    /**
+     * change le status d'un neighbour en favoris si initialement c'est le même
+     */
     @Test
     public void NoChange_FavoriteStatusNeighbour_WithSuccess_IfStatusIsTheSame(){
         //on récupère l'object Neighbour
@@ -63,6 +77,5 @@ public class NeighbourDetailTest {
         mActivityService.refreshFavoritNeighbour(true, true);
         assertTrue(neighbour.getFavorite());
     }
-
 
 }

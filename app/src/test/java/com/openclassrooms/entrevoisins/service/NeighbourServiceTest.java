@@ -3,22 +3,18 @@ package com.openclassrooms.entrevoisins.service;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
-import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.util.List;
-import java.util.Objects;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 import static org.hamcrest.core.IsCollectionContaining.hasItem;
-import static org.hamcrest.core.IsCollectionContaining.hasItems;
-import static org.junit.Assert.assertArrayEquals;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
@@ -50,8 +46,10 @@ public class NeighbourServiceTest {
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
     }
 
-    //--------------------------------------------------------
-
+    //---------------------AJOUT-----------------------------------
+    /**
+     * Ajoute un nouveau neighbour
+     */
     @Test
     public void addNewNeighbourWithSuccess(){
         List<Neighbour> neighbours = service.getNeighbours();
@@ -60,6 +58,9 @@ public class NeighbourServiceTest {
         assertEquals(neighbours.size(), neighbours2.size(), 1);
     }
 
+    /**
+     * change le status d'un neighbour pas en favoris
+     */
     @Test
     public void changeNeighbourToFavoriteWithSuccess() {
         Neighbour neighbourToFavorite = service.getNeighbours().get(0);
@@ -69,6 +70,9 @@ public class NeighbourServiceTest {
         assertEquals(true, isFavoriteNeighbour);
     }
 
+    /**
+     * change le status d'un neighbour en favoris
+     */
     @Test
     public void changeNeighbourToNotFavoriteWithSuccess() {
         Neighbour neighbourToFavorite = service.getNeighbours().get(0);
@@ -78,6 +82,9 @@ public class NeighbourServiceTest {
         assertEquals(false, isFavoriteNeighbour);
     }
 
+    /**
+     * Ajoute un neighbour en favoris
+     */
     @Test
     public void getFavoriteNeighboursWithSuccess() {
         // on récupère les neighbours en favoris
