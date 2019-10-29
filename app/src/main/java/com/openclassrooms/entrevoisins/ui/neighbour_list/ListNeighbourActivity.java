@@ -45,7 +45,7 @@ public class ListNeighbourActivity extends AppCompatActivity {
         //---------------------------------------------------------------------------
 
         mPagerAdapter = new ListNeighbourPagerAdapter(getSupportFragmentManager(), fragments); //on créer un adapter et on lui passe la liste des fragments (les 2 onglets)
-        mViewPager.setAdapter(mPagerAdapter); // on passe l'adapter à la recyclerView (mViewPager) afin qu'elle puisse affciher des données
+        mViewPager.setAdapter(mPagerAdapter); // on passe l'adapter à la vue d'adapter (mViewPager) afin qu'elle puisse afficher des données
 
         //addOnPageChangeListener => Ajoute un écouteur qui sera appelé chaque fois que la page sera modifiée ou fera défiler de manière incrémentielle.
         //La classe ViewPager.OnPageChangeListener qui contient les appels nécessaires au TabLayout fourni, de sorte que la position de la tabulation reste synchronisée.
